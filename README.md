@@ -7,11 +7,11 @@ https://nodejs.org/download/release/v20.14.0/
 ## Về tác giả
 Mọi thông tin về Tác giả Hỏi Dân IT, các bạn có thể tìm kiếm tại đây:
 
-Website chính thức: https://hoidanit.vn/
+Website chính thức: https://ghost.vn/
 
-Youtube “Hỏi Dân IT” : https://www.youtube.com/@hoidanit
+Youtube “Hỏi Dân IT” : https://www.youtube.com/@ghost
 
-Tiktok “Hỏi Dân IT” :  https://www.tiktok.com/@hoidanit
+Tiktok “Hỏi Dân IT” :  https://www.tiktok.com/@ghost
 
 Fanpage “Hỏi Dân IT” : https://www.facebook.com/askITwithERIC/
 
