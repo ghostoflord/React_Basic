@@ -1,23 +1,8 @@
 # React Ultimate Starter Template
-Template này được sử dụng cho series React Ultimate (Vite) của tác giả Hỏi Dân IT (Eric)
+Template này được sử dụng cho series React Ultimate (Vite) 
 
 ### Môi trường chạy dự án: Node.js v20.14.0
 https://nodejs.org/download/release/v20.14.0/
-
-## Về tác giả
-Mọi thông tin về Tác giả Hỏi Dân IT, các bạn có thể tìm kiếm tại đây:
-
-Website chính thức: https://ghost.vn/
-
-Youtube “Hỏi Dân IT” : https://www.youtube.com/@ghost
-
-Tiktok “Hỏi Dân IT” :  https://www.tiktok.com/@ghost
-
-Fanpage “Hỏi Dân IT” : https://www.facebook.com/askITwithERIC/
-
-Udemy Hỏi Dân IT: https://www.udemy.com/user/eric-7039/
-
-===
 
 Các bước cài đặt: (chế độ development)
 1. clone code
