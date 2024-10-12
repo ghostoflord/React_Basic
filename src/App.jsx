@@ -34,7 +34,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="todo-container">
+      {/* <div className="todo-container">
         <div className="todo-title">Todo List</div>
         <TodoNew
           addNewTodo={addNewTodo}
@@ -50,8 +50,8 @@ const App = () => {
             <img src={reactLogo} className='logo' />
           </div>
         }
-      </div>
-      <Outlet/>
+      </div> */}
+      <Outlet />
       <Footer />
     </>
   )
