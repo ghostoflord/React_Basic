@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { Input, notification, Modal } from "antd";
-import { createUserAPI } from "../../service/api.service";
+import { createUserAPI, updateUserAPI } from "../../service/api.service";
 
 const UpdateUserModal = (props) => {
     const [id, setId] = useState("");
     const [fullName, setFullName] = useState("");
     const [phone, setPhone] = useState("");
 
-    const { isModalUpdateOpen, setIsModalUpdateOpen, dataUpdate, setDataUpdate } = props;
+    const { isModalUpdateOpen, setIsModalUpdateOpen,
+        dataUpdate, setDataUpdate,
+        loadUser
+    } = props;
 
     //next dataUpdate != prev dataUpdate
     useEffect(() => {
@@ -21,14 +24,15 @@ const UpdateUserModal = (props) => {
 
 
     const handleSubmitBtn = async () => {
-        const res = await createUserAPI(fullName, email, password, phone);
+        const res = await updateUserAPI(id, fullName, phone);
         if (res.data) {
             notification.success({
-                message: "Create user",
-                description: "Tạo user thành công"
+                message: "Update user",
+                description: "Cập nhât thành công"
+
             })
             resetAndCloseModal();
-            // await loadUser();
+            await loadUser();
 
         } else {
             notification.error({
@@ -64,10 +68,10 @@ const UpdateUserModal = (props) => {
                     />
                 </div>
                 <div>
-                <span>Full Name</span>
+                    <span>Full Name</span>
                     <Input
-                       value={fullName}
-                       onChange={(event) => { setFullName(event.target.value) }}
+                        value={fullName}
+                        onChange={(event) => { setFullName(event.target.value) }}
                     />
                 </div>
                 <div>
