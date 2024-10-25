@@ -14,7 +14,7 @@ const UserPage = () => {
     //empty array => run once
     useEffect(() => {
         loadUser();
-    }, []);
+    }, [current, pageSize]); //[] + condition
 
     const loadUser = async () => {
         const res = await fetchAllUserAPI(current, pageSize);
@@ -27,7 +27,7 @@ const UserPage = () => {
 
     }
 
-
+    console.log(">>> check pageSize: ", pageSize)
     // lift-up state 
     return (
         <div style={{ padding: "20px" }}>
