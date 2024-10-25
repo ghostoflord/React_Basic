@@ -7,15 +7,25 @@ import { deleteUserAPI } from '../../service/api.service';
 
 const UserTable = (props) => {
     const { dataUsers, loadUser } = props;
+
     const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
 
     const [dataUpdate, setDataUpdate] = useState(null);
+
     const [dataDetail, setDataDetail] = useState(null);
     const [isDetailOpen, setIsDetailOpen] = useState(false);
 
-
-
     const columns = [
+        {
+            title: "STT",
+            render: (_, record, index) => {
+                console.log(">>> check index: ", index)
+                return (
+                    <>{index + 1}</>
+                )
+            }
+        },
+
         {
             title: 'Id',
             dataIndex: '_id',
@@ -28,10 +38,8 @@ const UserTable = (props) => {
                             setIsDetailOpen(true);
                         }}
                     >{record._id}</a>
-
                 )
             }
-
         },
         {
             title: 'Full Name',
@@ -52,7 +60,6 @@ const UserTable = (props) => {
                             setIsModalUpdateOpen(true);
                         }}
                         style={{ cursor: "pointer", color: "orange" }} />
-
                     <Popconfirm
                         title="Xóa người dùng"
                         description="Bạn chắc chắn xóa user này ?"
@@ -68,6 +75,7 @@ const UserTable = (props) => {
             ),
         },
     ];
+
     const handleDeleteUser = async (id) => {
         const res = await deleteUserAPI(id);
         if (res.data) {
@@ -84,7 +92,6 @@ const UserTable = (props) => {
             })
         }
     }
-
 
     return (
         <>
@@ -106,6 +113,7 @@ const UserTable = (props) => {
                 setDataDetail={setDataDetail}
                 isDetailOpen={isDetailOpen}
                 setIsDetailOpen={setIsDetailOpen}
+                loadUser={loadUser}
             />
         </>
     )
