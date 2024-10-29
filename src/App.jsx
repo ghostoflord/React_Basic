@@ -1,56 +1,40 @@
-import TodoData from './component/todo/TodoData';
-import TodoNew from './component/todo/TodoNew';
-import './component/todo/todo.css';
-import reactLogo from './assets/react.svg';
-import { useState } from 'react';
+
 import Header from './component/layout/header';
 import Footer from './component/layout/footer';
 import { Outlet } from 'react-router-dom';
+import { getAccountAPI } from './service/api.service';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from './component/context/auth.context';
+
 
 const App = () => {
+  const { setUser } = useContext(AuthContext);
 
-  const [todoList, setTodoList] = useState([
-  ])
+  useEffect(() => {
+    fetchUserInfo();
+  }, [])
 
-  const addNewTodo = (name) => {
-    const newTodo = {
-      id: randomIntFromInterval(1, 1000000),
-      name: name
+  const delay = (milSeconds) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve()
+      }, milSeconds)
+    })
+  }
+
+  const fetchUserInfo = async () => {
+    const res = await getAccountAPI();
+    await delay(3000)
+    if (res.data) {
+      //success
+      setUser(res.data.user)
+      console.log(">>> check user data: ", res.data)
     }
-    setTodoList([...todoList, newTodo])
-  }
-  const deleteTodo = (id) => {
-    const newTodo = todoList.filter(item => item.id !== id);
-    setTodoList(newTodo);
   }
 
-
-
-  const randomIntFromInterval = (min, max) => { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
-  //{key:value}
   return (
     <>
       <Header />
-      {/* <div className="todo-container">
-        <div className="todo-title">Todo List</div>
-        <TodoNew
-          addNewTodo={addNewTodo}
-        />
-
-        {todoList.length > 0 ?
-          <TodoData
-            deleteTodo={deleteTodo}
-            todoList={todoList}
-          />
-          :
-          <div className='todo-image'>
-            <img src={reactLogo} className='logo' />
-          </div>
-        }
-      </div> */}
       <Outlet />
       <Footer />
     </>
