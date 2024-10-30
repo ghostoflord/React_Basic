@@ -2,6 +2,7 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
 import { fetchAllBookAPI } from "../../service/api.service";
+import ViewBookDetail from "./view.book.detail";
 
 const BookTable = () => {
 
@@ -10,8 +11,8 @@ const BookTable = () => {
     const [pageSize, setPageSize] = useState(5);
     const [total, setTotal] = useState(0);
 
-    // const [dataDetail, setDataDetail] = useState(null);
-    // const [isDetailOpen, setIsDetailOpen] = useState(false);
+    const [dataDetail, setDataDetail] = useState(null);
+    const [isDetailOpen, setIsDetailOpen] = useState(false);
 
     // const [dataUpdate, setDataUpdate] = useState(null);
     // const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
@@ -71,10 +72,10 @@ const BookTable = () => {
                 return (
                     <a
                         href='#'
-                    // onClick={() => {
-                    //     setDataDetail(record);
-                    //     setIsDetailOpen(true);
-                    // }}
+                        onClick={() => {
+                            setDataDetail(record);
+                            setIsDetailOpen(true);
+                        }}
                     >{record._id}</a>
                 )
             }
@@ -155,7 +156,13 @@ const BookTable = () => {
                     }
                 }
                 onChange={onChange}
-
+            />
+             <ViewBookDetail
+                dataDetail={dataDetail}
+                setDataDetail={setDataDetail}
+                isDetailOpen={isDetailOpen}
+                setIsDetailOpen={setIsDetailOpen}
+                loadBook={loadBook}
             />
         </>
     )
