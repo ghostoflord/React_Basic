@@ -23,7 +23,9 @@ const ViewBookDetail = (props) => {
                 <br />
                 <p>Tiêu Đề: {dataDetail.mainText}</p>
                 <br />
-                <p>Giá Tiền: {dataDetail.price}</p>
+                <p>Giá Tiền: {new Intl.NumberFormat('vi-VN',
+                    { style: 'currency', currency: 'VND' }).format(dataDetail.price)}
+                </p>
                 <br />
                 <p>Số Lượng: {dataDetail.quantity}</p>
                 <br />
