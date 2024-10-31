@@ -1,3 +1,4 @@
+import BookDetail from "../component/book/book.detail";
 import BookTable from "../component/book/book.table";
 import { fetchAllBookAPI } from '../service/api.service';
 import { useEffect, useState } from 'react';
@@ -21,7 +22,10 @@ const BookPage = () => {
 
     }
     return (
-        <BookTable loadBook={loadBook} />
+        <>
+            <BookDetail loadBook={loadBook} />
+            <BookTable loadBook={loadBook} />
+        </>
     )
 }
 
