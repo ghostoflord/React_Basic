@@ -5,6 +5,7 @@ import { fetchAllBookAPI } from "../../service/api.service";
 import BookDetail from "./book.detail";
 import CreateBookControl from "./create.book.control";
 import CreateBookUnControl from "./create.book.uncontrol";
+import UpdateBookControl from "./update.book.control";
 
 const BookTable = () => {
 
@@ -176,6 +177,13 @@ const BookTable = () => {
             <CreateBookUnControl
                 isCreateOpen={isCreateOpen}
                 setIsCreateOpen={setIsCreateOpen}
+                loadBook={loadBook}
+            />
+            <UpdateBookControl
+                isModalUpdateOpen={isModalUpdateOpen}
+                setIsModalUpdateOpen={setIsModalUpdateOpen}
+                dataUpdate={dataUpdate}
+                setDataUpdate={setDataUpdate}
                 loadBook={loadBook}
             />
         </>
